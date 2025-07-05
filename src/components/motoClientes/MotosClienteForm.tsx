@@ -101,7 +101,7 @@ export default function MotoClienteForm({
         marca: moto.marca || '',
         modelo: moto.modelo || '',
         ano: moto.ano || 0,
-        id_cliente: moto.Cliente?.id_cliente,
+        id_cliente: moto.cliente?.id_cliente,
       })
     }
   }, [moto, reset])
@@ -242,8 +242,8 @@ export default function MotoClienteForm({
                           <SelectTrigger>
                             <SelectValue
                               placeholder={
-                                moto?.Cliente
-                                  ? moto.Cliente.nombre_cliente
+                                moto?.cliente
+                                  ? moto.cliente.nombre_cliente
                                   : 'Selecciona un cliente'
                               }
                             />
