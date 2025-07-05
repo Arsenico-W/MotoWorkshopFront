@@ -577,7 +577,7 @@ export default function OrdenServicioForm({
                                 value={moto.id_moto_cliente.toString()}
                               >
                                 {moto.placa} - {moto.marca} {moto.modelo} -{' '}
-                                {moto.Cliente.nombre_cliente}
+                                {moto.cliente.nombre_cliente}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -590,17 +590,17 @@ export default function OrdenServicioForm({
                           <div className="flex items-center space-x-2">
                             <User className="h-4 w-4 text-muted-foreground" />
                             <span className="font-medium">
-                              {selectedMoto.Cliente?.nombre_cliente}
+                              {selectedMoto.cliente?.nombre_cliente}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <CreditCard className="h-4 w-4 text-muted-foreground" />
-                            <span>Cédula: {selectedMoto.Cliente?.cedula}</span>
+                            <span>Cédula: {selectedMoto.cliente?.cedula}</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <Phone className="h-4 w-4 text-muted-foreground" />
                             <span>
-                              Teléfono: {selectedMoto.Cliente?.telefono}
+                              Teléfono: {selectedMoto.cliente?.telefono}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
