@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "noUnusedLocals": false, // Desactiva la advertencia de variables locales no utilizadas
+    "noUnusedParameters": false, // Desactiva la advertencia de parámetros no utilizados
+    "strict": false, // Desactiva todas las comprobaciones estrictas de tipo
+    "skipLibCheck": true,
+     "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/facturas/page.jsx", "src/app/dashboard/facturas/view/[id]/page.jsx", "src/app/dashboard/proveedores/page.jsx", "src/app/page.jsx", "src/app/dashboard/clientes/edit/[id]/page.jsx"],
+  "exclude": ["node_modules"]
+}
