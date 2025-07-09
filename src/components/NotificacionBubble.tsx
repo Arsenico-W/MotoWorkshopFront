@@ -135,7 +135,10 @@ const NotificationBubble = () => {
                 {notifications.reserva.map((reserva) => (
                   <li key={reserva.id_reserva} className="text-sm">
                     {reserva.Cliente.nombre_cliente} - {' '}
-                    {new Date(reserva.fecha_reserva).toLocaleDateString('es-CO')} 
+                    {new Date(reserva.fecha_reserva).toISOString().split('T')[0]
+                    .split('-')
+                    .reverse()
+                    .join('/')} 
                   </li>
                 ))}
               </ul>
