@@ -129,7 +129,7 @@ export default function EnhancedOrdenesServicioTable({
             {[
               { key: 'id_orden_servicio', label: '# Orden', icon: FileText },
               { key: 'fecha', label: 'Fecha', icon: Calendar },
-              { key: 'moto_cliente.placa', label: 'Placa', icon: Car },
+              { key: 'MotoCliente.placa', label: 'Placa', icon: Car },
               { key: 'estado', label: 'Estado', icon: Activity },
             ].map(({ key, label, icon: Icon }) => (
               <TableHead
@@ -193,13 +193,13 @@ export default function EnhancedOrdenesServicioTable({
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <span className="cursor-help underline decoration-dotted">
-                        {orden.moto_cliente?.placa}
+                        {orden.MotoCliente?.placa}
                         </span>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Marca: {orden.moto_cliente?.marca}</p>
-                        <p>Modelo: {orden.moto_cliente?.modelo}</p>
-                        <p>Año: {orden.moto_cliente?.ano}</p>
+                        <p>Marca: {orden.MotoCliente?.marca}</p>
+                        <p>Modelo: {orden.MotoCliente?.modelo}</p>
+                        <p>Año: {orden.MotoCliente?.ano}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

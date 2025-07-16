@@ -79,7 +79,7 @@ export interface OrdenServicio {
   observaciones: string;
   mecanico: string;
   id_moto_cliente: number;
-  moto_cliente: MotoCliente;
+  MotoCliente: MotoCliente;
   servicios: ServicioOrdenServicio[];
   repuestos: RepuestoOrdenServicio[];
   factura?: Factura;
