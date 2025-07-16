@@ -165,9 +165,9 @@ export default function CompactFacturaViewPage({
     const itemsHtml = items
       .map(
         (item) => `
-        ${formatLine(`${item.name}`)}
-        ${formatLine(`${item.quantity} x ${formatCurrency(item.price)}`)}
-        ${formatRight(`${formatCurrency(item.quantity * item.price)}`)}
+        ${formatLine(`<span class="bold">${item.name}</span>`)}
+        ${formatLine(`<span class="bold">${item.quantity} x ${formatCurrency(item.price)}</span>`)}
+        ${formatRight(`<span class="bold">${formatCurrency(item.quantity * item.price)}</span>`)}
       `
       )
       .join('')
