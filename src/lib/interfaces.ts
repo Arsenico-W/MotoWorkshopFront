@@ -143,6 +143,7 @@ export interface RepuestoResponse {
   repuestos: Repuesto[];
 }
 
+//stiwi
 export interface Repuesto {
   id_repuesto: number;
   codigo_barras: string;

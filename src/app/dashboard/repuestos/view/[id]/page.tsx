@@ -158,7 +158,7 @@ export default function ViewRepuestoPage({
               </div>
               <div>
                 <dt className="font-semibold">Marca:</dt>
-                <dd>{repuesto.marca.nombre_marca}</dd>
+                <dd>{repuesto.MarcaRepuesto.nombre_marca}</dd>
               </div>
             </dl>
           </CardContent>
@@ -179,9 +179,9 @@ export default function ViewRepuestoPage({
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {repuesto.motos_mercado.map((moto) => (
+                  {repuesto.MotoRepuesto.map((moto) => (
                     <TableRow key={moto.id_moto_mercado}>
-                      <TableCell>{moto.moto_mercado.modelo}</TableCell>
+                      <TableCell>{moto.MotoMercado.modelo}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -212,12 +212,12 @@ export default function ViewRepuestoPage({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {repuesto.proveedores.map((prov) => (
+                {repuesto.ProveedorRepuesto.map((prov) => (
                   <TableRow key={prov.id_proveedor}>
-                    <TableCell>{prov.proveedor.nombre_proveedor}</TableCell>
-                    <TableCell>{prov.proveedor.nit}</TableCell>
-                    <TableCell>{prov.proveedor.telefono}</TableCell>
-                    <TableCell>{prov.proveedor.asesor}</TableCell>
+                    <TableCell>{prov.Proveedor.nombre_proveedor}</TableCell>
+                    <TableCell>{prov.Proveedor.nit}</TableCell>
+                    <TableCell>{prov.Proveedor.telefono}</TableCell>
+                    <TableCell>{prov.Proveedor.asesor}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

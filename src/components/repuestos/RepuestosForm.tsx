@@ -167,14 +167,14 @@ export default function RepuestoForm({
         proveedores:
           repuesto.proveedores?.map((prov) => prov.id_proveedor) || [],
         motos_mercado:
-          repuesto.motos_mercado?.map((moto) => moto.id_moto_mercado) || [],
+          repuesto.MotoRepuesto?.map((moto) => moto.id_moto_mercado) || [],
       })
       setSelectedMarca(repuesto.id_marca || null)
       setSelectedProveedores(
         repuesto.proveedores?.map((prov) => prov.id_proveedor) || []
       )
       setSelectedMotosMercado(
-        repuesto.motos_mercado?.map((moto) => moto.id_moto_mercado) || []
+        repuesto.MotoRepuesto?.map((moto) => moto.id_moto_mercado) || []
       )
     }
   }, [repuesto, reset])
