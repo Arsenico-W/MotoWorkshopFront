@@ -61,8 +61,8 @@ const [queryServicios, setQueryServicios] = useState('')
 
   useEffect(() => {
     async function loadData() {
-      const clientesData = await fetchFilteredClientes(queryClientes, 1, 50)
-      const serviciosData = await fetchFilteredServicios(queryServicios, 1, 50)
+      const clientesData = await fetchFilteredClientes(queryClientes, 1, 500)
+      const serviciosData = await fetchFilteredServicios(queryServicios, 1, 500)
       setClientes(clientesData)
       setServicios(serviciosData)
     }
