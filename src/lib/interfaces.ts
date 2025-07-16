@@ -81,7 +81,7 @@ export interface OrdenServicio {
   id_moto_cliente: number;
   MotoCliente: MotoCliente;
   ServicioOrdenServicio: ServicioOrdenServicio[];
-  repuestos: RepuestoOrdenServicio[];
+  RepuestoOrdenServicio: RepuestoOrdenServicio[];
   factura?: Factura;
 }
 
@@ -183,7 +183,7 @@ export interface RepuestoOrdenServicio {
   cantidad: number;
   precio: number;
   orden_servicio: OrdenServicio;
-  repuesto: Repuesto;
+  Repuesto: Repuesto;
 }
 
 export interface MotoMercadoResponse {
