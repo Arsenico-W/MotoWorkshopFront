@@ -152,10 +152,10 @@ export interface Repuesto {
   ubicacion: string;
   stock: number;
   id_marca: number;
-  marca: MarcaRepuesto;
+  MarcaRepuesto: MarcaRepuesto;
   ventas: RepuestoVenta[];
   ordenes_servicio: RepuestoOrdenServicio[];
-  motos_mercado: MotoRepuesto[];
+  MotoRepuesto: MotoRepuesto[];
   proveedores: ProveedorRepuesto[];
 }
 
@@ -202,7 +202,7 @@ export interface MotoRepuestoResponse {
 export interface MotoRepuesto {
   id_moto_mercado: number;
   id_repuesto: number;
-  moto_mercado: MotoMercado;
+  MotoMercado: MotoMercado;
   repuesto: Repuesto;
 }
 

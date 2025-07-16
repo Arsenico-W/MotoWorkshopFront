@@ -46,7 +46,7 @@ interface Repuesto {
 interface Marca {
   id_marca: number
   nombre_marca: string
-  repuestos: Repuesto[]
+  Repuesto: Repuesto[]
 }
 
 export default function MarcaViewPage({ params }: { params: { id: number } }) {
@@ -148,7 +148,7 @@ export default function MarcaViewPage({ params }: { params: { id: number } }) {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {marca.repuestos.map((repuesto) => (
+                {marca.Repuesto.map((repuesto) => (
                   <TableRow key={repuesto.id_repuesto}>
                     <TableCell>{repuesto.id_repuesto}</TableCell>
                     <TableCell>{repuesto.nombre_repuesto}</TableCell>
@@ -186,7 +186,7 @@ export default function MarcaViewPage({ params }: { params: { id: number } }) {
           </ScrollArea>
           <div className="mt-4">
             <Badge variant="secondary">
-              Total de Repuestos: {marca.repuestos.length}
+              Total de Repuestos: {marca.Repuesto.length}
             </Badge>
           </div>
         </CardContent>

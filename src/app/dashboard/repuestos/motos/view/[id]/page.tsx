@@ -34,10 +34,10 @@ interface Repuesto {
 interface MotoMercado {
   id_moto_mercado: number
   modelo: string
-  repuestos: Array<{
+  MotoRepuesto: Array<{
     id_moto_mercado: number
     id_repuesto: number
-    repuesto: Repuesto
+    Repuesto: Repuesto
   }>
 }
 
@@ -152,15 +152,15 @@ export default function MotoMercadoViewPage({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {motoMercado.repuestos.map((item) => (
-                  <TableRow key={item.repuesto.id_repuesto}>
-                    <TableCell>{item.repuesto.nombre_repuesto}</TableCell>
-                    <TableCell>{item.repuesto.codigo_barras}</TableCell>
+                {motoMercado.MotoRepuesto.map((item) => (
+                  <TableRow key={item.Repuesto.id_repuesto}>
+                    <TableCell>{item.Repuesto.nombre_repuesto}</TableCell>
+                    <TableCell>{item.Repuesto.codigo_barras}</TableCell>
                     <TableCell>
                       {formatCurrency(
                         Number(
-                          item.repuesto.valor_unitario +
-                            item.repuesto.valor_unitario * 0.19
+                          item.Repuesto.valor_unitario +
+                            item.Repuesto.valor_unitario * 0.19
                         )
                       )}
                     </TableCell>
@@ -171,7 +171,7 @@ export default function MotoMercadoViewPage({
           </ScrollArea>
           <div className="mt-4">
             <Badge variant="secondary">
-              Total de Repuestos: {motoMercado.repuestos.length}
+              Total de Repuestos: {motoMercado.MotoRepuesto.length}
             </Badge>
           </div>
         </CardContent>

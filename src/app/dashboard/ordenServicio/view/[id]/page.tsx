@@ -325,12 +325,11 @@ export default function CompactPrintServiceOrderView() {
           <Button onClick={handlePrint}>
             <Printer className="mr-2 h-4 w-4" /> Imprimir
           </Button>
-          <Button onClick={handleSend} disabled={sending}>
-            {sending 
-              ? <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              : <Mail     className="mr-2 h-4 w-4" />}
-            {sending  ? 'Enviando…' : 'Enviar Correo'}
-          </Button>
+          {orden.estado === "COMPLETADO" && (
+            <Button onClick={handleSend} disabled={sending}>
+              {sending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" />: <Mail className="mr-2 h-4 w-4" />}{sending ? 'Enviando…' : 'Enviar Correo'}
+            </Button>
+          )}
         </div>
       </div>
 

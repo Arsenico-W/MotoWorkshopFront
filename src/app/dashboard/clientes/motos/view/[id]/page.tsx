@@ -130,19 +130,19 @@ export default function ViewMotoClientePage({
             <dl className="space-y-2">
               <div>
                 <dt className="font-semibold">Nombre:</dt>
-                <dd>{motoCliente.cliente.nombre_cliente}</dd>
+                <dd>{motoCliente.Cliente.nombre_cliente}</dd>
               </div>
               <div>
                 <dt className="font-semibold">Cédula:</dt>
-                <dd>{motoCliente.cliente.cedula}</dd>
+                <dd>{motoCliente.Cliente.cedula}</dd>
               </div>
               <div>
                 <dt className="font-semibold">Correo:</dt>
-                <dd>{motoCliente.cliente.correo}</dd>
+                <dd>{motoCliente.Cliente.correo}</dd>
               </div>
               <div>
                 <dt className="font-semibold">Teléfono:</dt>
-                <dd>{motoCliente.cliente.telefono}</dd>
+                <dd>{motoCliente.Cliente.telefono}</dd>
               </div>
             </dl>
           </CardContent>
@@ -157,13 +157,13 @@ export default function ViewMotoClientePage({
             <dl className="space-y-2">
               <div>
                 <dt className="font-semibold">Total de Órdenes:</dt>
-                <dd>{motoCliente.ordenes_servicio.length}</dd>
+                <dd>{motoCliente.OrdenServicio.length}</dd>
               </div>
               <div>
                 <dt className="font-semibold">Órdenes Pendientes:</dt>
                 <dd>
                   {
-                    motoCliente.ordenes_servicio.filter(
+                    motoCliente.OrdenServicio.filter(
                       (orden) => orden.estado === 'PENDIENTE'
                     ).length
                   }
@@ -173,7 +173,7 @@ export default function ViewMotoClientePage({
                 <dt className="font-semibold">Última Orden:</dt>
                 <dd>
                   {formatDate(
-                    motoCliente.ordenes_servicio[0]?.fecha || new Date()
+                    motoCliente.OrdenServicio[0]?.fecha || new Date()
                   )}
                 </dd>
               </div>
@@ -196,18 +196,18 @@ export default function ViewMotoClientePage({
               <TabsTrigger value="completed">Completadas</TabsTrigger>
             </TabsList>
             <TabsContent value="all">
-              <OrdenesTable ordenes={motoCliente.ordenes_servicio} />
+              <OrdenesTable ordenes={motoCliente.OrdenServicio} />
             </TabsContent>
             <TabsContent value="pending">
               <OrdenesTable
-                ordenes={motoCliente.ordenes_servicio.filter(
+                ordenes={motoCliente.OrdenServicio.filter(
                   (orden) => orden.estado === 'PENDIENTE'
                 )}
               />
             </TabsContent>
             <TabsContent value="completed">
               <OrdenesTable
-                ordenes={motoCliente.ordenes_servicio.filter(
+                ordenes={motoCliente.OrdenServicio.filter(
                   (orden) => orden.estado === 'COMPLETADO'
                 )}
               />

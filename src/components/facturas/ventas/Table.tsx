@@ -234,13 +234,13 @@ export default function VentaDirectaTable({ query, currentPage, limit }) {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <span className="cursor-help underline decoration-dotted">
-                          {venta.cliente.nombre_cliente}
+                          {venta.Cliente.nombre_cliente}
                         </span>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Cédula: {venta.cliente.cedula}</p>
-                        <p>Correo: {venta.cliente.correo}</p>
-                        <p>Teléfono: {venta.cliente.telefono}</p>
+                        <p>Cédula: {venta.Cliente.cedula}</p>
+                        <p>Correo: {venta.Cliente.correo}</p>
+                        <p>Teléfono: {venta.Cliente.telefono}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -267,10 +267,10 @@ export default function VentaDirectaTable({ query, currentPage, limit }) {
                           </TableRow>
                         </TableHeader>
                         <TableBody>
-                          {venta.repuestos.map((repuesto) => (
+                          {venta.RepuestoVenta.map((repuesto) => (
                             <TableRow key={repuesto.id_repuesto}>
                               <TableCell>
-                                {repuesto.repuesto.nombre_repuesto}
+                                {repuesto.Repuesto.nombre_repuesto}
                               </TableCell>
                               <TableCell>{repuesto.cantidad}</TableCell>
                               <TableCell>

@@ -215,7 +215,7 @@ export default function RepuestosTable({
                   {repuesto.nombre_repuesto}
                 </TableCell>
                 <TableCell>
-                  {repuesto.marca.nombre_marca}
+                  {repuesto.MarcaRepuesto.nombre_marca}
                 </TableCell>
                 <TableCell>
                   {formatCurrency(
@@ -246,12 +246,12 @@ export default function RepuestosTable({
                     </PopoverTrigger>
                     <PopoverContent className="w-[200px] p-0">
                       <ul className="max-h-[200px] overflow-auto">
-                        {repuesto.motos_mercado.map((moto) => (
+                        {repuesto.MotoRepuesto.map((moto) => (
                           <li
                             key={moto.id_moto_mercado}
                             className="p-2 hover:bg-gray-100"
                           >
-                            {moto.moto_mercado.modelo}
+                            {moto.MotoMercado.modelo}
                           </li>
                         ))}
                       </ul>

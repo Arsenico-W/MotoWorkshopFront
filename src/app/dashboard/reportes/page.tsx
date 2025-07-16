@@ -437,7 +437,7 @@ export default function InvoiceReportsDashboard() {
         return [
           format(parseISO(invoice.fecha), 'dd/MM/yyyy HH:mm:ss'),
           invoice.id_factura,
-          invoice.cliente.nombre_cliente,
+          invoice.Cliente.nombre_cliente,
           invoice.pago_efectivo,
           invoice.pago_tarjeta,
           invoice.pago_transferencia,
@@ -809,7 +809,7 @@ export default function InvoiceReportsDashboard() {
                       <TableCell>
                         {format(parseISO(invoice.fecha), 'dd/MM/yyyy HH:mm')}
                       </TableCell>
-                      <TableCell>{invoice.cliente.nombre_cliente}</TableCell>
+                      <TableCell>{invoice.Cliente.nombre_cliente}</TableCell>
                       <TableCell className="text-right">
                         {formatCurrency(parseFloat(invoice.total))}
                       </TableCell>
