@@ -115,7 +115,7 @@ export default function OrdenServicioForm({
           total: parseFloat(initialData.total),
           Servicio: initialData.ServicioOrdenServicio?.map((s: any) => ({
             id_servicio: s.id_servicio,
-            nombre_servicio: s.servicio.nombre_servicio,
+            nombre_servicio: s.Servicio.nombre_servicio,
             precio: parseFloat(s.precio),
           })),
           Repuesto: initialData.RepuestoOrdenServicio.Repuesto?.map((r: any) => ({
@@ -721,6 +721,16 @@ export default function OrdenServicioForm({
                               <TableRow key={field.id}>
                                 <TableCell className="font-medium w-[200px]">
                                   {field.nombre_servicio}
+                                  <Input
+                                    type="hidden"
+                                    {...form.register(`Servicio.${index}.id_servicio`)}
+                                    value={field.id_servicio}
+                                    />
+                                  <Input
+                                    type="hidden"
+                                    {...form.register(`Servicio.${index}.nombre_servicio`)}
+                                    value={field.nombre_servicio}
+                                  />
                                 </TableCell>
                                 <TableCell>
                                   <FormField
