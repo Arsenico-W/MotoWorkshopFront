@@ -113,14 +113,14 @@ export const ordenServicioFormSchema = z.object({
     .number()
     .int()
     .positive('La moto del cliente es requerida'),
-  servicios: z.array(
+  Servicio: z.array(
     z.object({
       id_servicio: z.number().int().positive('El ID del servicio es requerido'),
       nombre_servicio: z.string(),
       precio: z.number().min(0, 'El precio del servicio es requerido'),
     })
   ),
-  repuestos: z.array(
+  Repuesto: z.array(
     z.object({
       id_repuesto: z.number().int().positive('El ID del repuesto es requerido'),
       nombre_repuesto: z.string(),

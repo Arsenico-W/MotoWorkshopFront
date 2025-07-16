@@ -62,7 +62,7 @@ export default function EditOrdenServicioPage({
       if (!response.ok) {
         throw new Error(
           `${responseData.message}.
-           Revisa posibles duplicados en repuestos o servicios.` ||
+            Revisa posibles duplicados en repuestos o servicios.` ||
             'No se pudo actualizar la orden de servicio.'
         )
       }

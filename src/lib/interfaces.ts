@@ -56,7 +56,7 @@ export interface MotoCliente {
   ano: number;
   placa: string;
   id_cliente: number;
-  cliente: Cliente;
+  Cliente: Cliente;
   ordenes_servicio: OrdenServicio[];
 }
 
@@ -80,7 +80,7 @@ export interface OrdenServicio {
   mecanico: string;
   id_moto_cliente: number;
   MotoCliente: MotoCliente;
-  servicios: ServicioOrdenServicio[];
+  ServicioOrdenServicio: ServicioOrdenServicio[];
   repuestos: RepuestoOrdenServicio[];
   factura?: Factura;
 }
@@ -92,7 +92,7 @@ export interface ServicioResponse {
 export interface Servicio {
   id_servicio: number;
   nombre_servicio: string;
-  ordenes_servicio: ServicioOrdenServicio[];
+  ServicioOrdenServicio: ServicioOrdenServicio[];
 }
 
 export interface ServicioOrdenServicioResponse {
@@ -104,7 +104,7 @@ export interface ServicioOrdenServicio {
   id_servicio: number;
   precio: number;
   orden_servicio: OrdenServicio;
-  servicio: Servicio;
+  Servicio: Servicio;
 }
 
 export interface VentaDirectaResponse {

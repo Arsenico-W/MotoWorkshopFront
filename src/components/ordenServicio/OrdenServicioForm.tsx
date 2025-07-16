@@ -92,7 +92,7 @@ export default function OrdenServicioForm({
   const [servicioSearch, setServicioSearch] = useState('')
   const [motos, setMotos] = useState<MotoCliente[]>([])
   const [repuestos, setRepuestos] = useState<Repuesto[]>([])
-  const [servicios, setServicios] = useState<Servicio[]>([])
+  const [Servicio, setServicios] = useState<Servicio[]>([])
   const [selectedMoto, setSelectedMoto] = useState<MotoCliente | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [discountPercentage, setDiscountPercentage] = useState(0)
@@ -113,12 +113,12 @@ export default function OrdenServicioForm({
           descuento: parseFloat(initialData.descuento),
           iva: parseFloat(initialData.iva),
           total: parseFloat(initialData.total),
-          servicios: initialData.servicios?.map((s: any) => ({
+          Servicio: initialData.ServicioOrdenServicio?.map((s: any) => ({
             id_servicio: s.id_servicio,
             nombre_servicio: s.servicio.nombre_servicio,
             precio: parseFloat(s.precio),
           })),
-          repuestos: initialData.repuestos?.map((r: any) => ({
+          Repuesto: initialData.RepuestoOrdenServicio.Repuesto?.map((r: any) => ({
             id_repuesto: r.id_repuesto,
             nombre_repuesto: r.repuesto.nombre_repuesto,
             cantidad: r.cantidad,
@@ -144,8 +144,8 @@ export default function OrdenServicioForm({
           observaciones_factura: '',
           mecanico: '',
           id_moto_cliente: 0,
-          servicios: [],
-          repuestos: [],
+          Servicio: [],
+          Repuesto: [],
           vendedor: localStorage.getItem('userName'),
           adelanto_efectivo: 0,
           adelanto_tarjeta: 0,
@@ -159,7 +159,7 @@ export default function OrdenServicioForm({
     remove: removeServicio,
   } = useFieldArray({
     control: form.control,
-    name: 'servicios',
+    name: 'Servicio',
   })
 
   const {
@@ -168,13 +168,13 @@ export default function OrdenServicioForm({
     remove: removeRepuesto,
   } = useFieldArray({
     control: form.control,
-    name: 'repuestos',
+    name: 'Repuesto',
   })
 
   useEffect(() => {
     if (initialData) {
-      if (initialData.moto_cliente) {
-        setSelectedMoto(initialData.moto_cliente)
+      if (initialData.MotoCliente) {
+        setSelectedMoto(initialData.MotoCliente)
       }
       if (initialData.subtotal && initialData.descuento) {
         const subtotalSinDescuento =
@@ -202,17 +202,17 @@ export default function OrdenServicioForm({
   }, [initialData])
 
   const searchMotos = useCallback(async () => {
-    const results = await fetchFilteredMotosClientes(motoSearch, 1, 50)
+    const results = await fetchFilteredMotosClientes(motoSearch, 1, 500)
     setMotos(results)
   }, [motoSearch])
 
   const searchRepuestos = useCallback(async () => {
-    const results = await fetchFilteredRepuestos(repuestoSearch, 1, 50)
+    const results = await fetchFilteredRepuestos(repuestoSearch, 1, 500)
     setRepuestos(results)
   }, [repuestoSearch])
 
   const searchServicios = useCallback(async () => {
-    const results = await fetchFilteredServicios(servicioSearch, 1, 50)
+    const results = await fetchFilteredServicios(servicioSearch, 1, 500)
     setServicios(results)
   }, [servicioSearch])
 
@@ -229,9 +229,9 @@ export default function OrdenServicioForm({
   }, [servicioSearch, searchServicios])
 
   const calculateSubtotal = useCallback(() => {
-    const repuestosTotal = (form.watch('repuestos') ?? [])
+    const repuestosTotal = (form.watch('Repuesto') ?? [])
       .reduce((acc, repuesto) => acc + repuesto.precio * repuesto.cantidad, 0)
-    const serviciosTotal = (form.watch('servicios') ?? [])
+    const serviciosTotal = (form.watch('Servicio') ?? [])
       .reduce((acc, servicio) => acc + servicio.precio, 0)
     return { repuestosTotal, serviciosTotal }
   }, [form])
@@ -255,8 +255,8 @@ export default function OrdenServicioForm({
   useEffect(() => {
     updateCalculations()
   }, [
-    form.watch('repuestos'),
-    form.watch('servicios'),
+    form.watch('Repuesto'),
+    form.watch('Servicio'),
     discountPercentage,
     ivaPercentage,
     updateCalculations,
@@ -425,7 +425,7 @@ export default function OrdenServicioForm({
     index: number
   ) => {
     const value = e.target.value
-    form.setValue(`servicios.${index}.precio`, Number(value))
+    form.setValue(`Servicio.${index}.precio`, Number(value))
     const newFormattedPrices = [...formattedServicioPrices]
     newFormattedPrices[index] = value ? formatCurrency(parseFloat(value)) : ''
     setFormattedServicioPrices(newFormattedPrices)
@@ -577,7 +577,7 @@ export default function OrdenServicioForm({
                                 value={moto.id_moto_cliente.toString()}
                               >
                                 {moto.placa} - {moto.marca} {moto.modelo} -{' '}
-                                {moto.cliente.nombre_cliente}
+                                {moto.Cliente.nombre_cliente}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -590,17 +590,17 @@ export default function OrdenServicioForm({
                           <div className="flex items-center space-x-2">
                             <User className="h-4 w-4 text-muted-foreground" />
                             <span className="font-medium">
-                              {selectedMoto.cliente?.nombre_cliente}
+                              {selectedMoto.Cliente?.nombre_cliente}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <CreditCard className="h-4 w-4 text-muted-foreground" />
-                            <span>Cédula: {selectedMoto.cliente?.cedula}</span>
+                            <span>Cédula: {selectedMoto.Cliente?.cedula}</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <Phone className="h-4 w-4 text-muted-foreground" />
                             <span>
-                              Teléfono: {selectedMoto.cliente?.telefono}
+                              Teléfono: {selectedMoto.Cliente?.telefono}
                             </span>
                           </div>
                           <div className="flex items-center space-x-2">
@@ -668,10 +668,10 @@ export default function OrdenServicioForm({
                             <Search className="h-4 w-4" />
                           </Button>
                         </div>
-                        {servicios.length > 0 && (
+                        {Servicio.length > 0 && (
                           <Select
                             onValueChange={(value) => {
-                              const servicio = servicios.find(
+                              const servicio = Servicio.find(
                                 (s) => s.id_servicio === parseInt(value)
                               )
                               if (servicio) {
@@ -691,7 +691,7 @@ export default function OrdenServicioForm({
                               <SelectValue placeholder="Seleccionar servicio" />
                             </SelectTrigger>
                             <SelectContent className="overflow-auto h-[200px]">
-                              {servicios.map((servicio) => (
+                              {Servicio.map((servicio) => (
                                 <SelectItem
                                   key={servicio.id_servicio}
                                   value={servicio.id_servicio.toString()}
@@ -725,7 +725,7 @@ export default function OrdenServicioForm({
                                 <TableCell>
                                   <FormField
                                     control={form.control}
-                                    name={`servicios.${index}.precio`}
+                                    name={`Servicio.${index}.precio`}
                                     render={({ field }) => (
                                       <FormItem>
                                         <FormControl>
@@ -860,7 +860,7 @@ export default function OrdenServicioForm({
                                 <TableCell className="w-[100px]">
                                   <FormField
                                     control={form.control}
-                                    name={`repuestos.${index}.cantidad`}
+                                    name={`Repuesto.${index}.cantidad`}
                                     render={({ field }) => (
                                       <FormItem>
                                         <FormControl>
@@ -884,13 +884,13 @@ export default function OrdenServicioForm({
                                 </TableCell>
                                 <TableCell className="w-[150px]">
                                   {formatCurrency(
-                                    form.watch(`repuestos.${index}.precio`)
+                                    form.watch(`Repuesto.${index}.precio`)
                                   )}
                                 </TableCell>
                                 <TableCell className="w-[150px]">
                                   {formatCurrency(
-                                    form.watch(`repuestos.${index}.cantidad`) *
-                                      form.watch(`repuestos.${index}.precio`)
+                                    form.watch(`Repuesto.${index}.cantidad`) *
+                                      form.watch(`Repuesto.${index}.precio`)
                                   )}
                                 </TableCell>
                                 <TableCell className="w-[100px]">
@@ -916,7 +916,7 @@ export default function OrdenServicioForm({
                 )}
               </div>
 
-             {initialData && (<Card>
+              {initialData && (<Card>
                 <CardHeader>
                   <CardTitle>Detalles Financieros</CardTitle>
                 </CardHeader>
@@ -1161,7 +1161,7 @@ export default function OrdenServicioForm({
                     )}
                   />}
 
-                 {form.watch('estado') === 'COMPLETADO' && <FormField
+                  {form.watch('estado') === 'COMPLETADO' && <FormField
                     control={form.control}
                     name="observaciones_factura"
                     render={({ field }) => (
