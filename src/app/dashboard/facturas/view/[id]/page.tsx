@@ -256,15 +256,15 @@ export default function CompactFacturaViewPage({
       .map(
         (item) => `
   <tr style="height: 2px;">
-    <td style="font-size: 6px; padding: 1px;">${item.name}</td>
-    <td style="font-size: 6px; padding: 1px;">${item.type}</td>
-    <td style="font-size: 6px; padding: 1px;" class="text-right">${
+    <td style="font-size: 10px; padding: 1px;">${item.name}</td>
+    <td style="font-size: 10px; padding: 1px;">${item.type}</td>
+    <td style="font-size: 10px; padding: 1px;" class="text-right">${
       item.quantity
     }</td>
-    <td style="font-size: 6px; padding: 1px;" class="text-right">${formatCurrency(
+    <td style="font-size: 10px; padding: 1px;" class="text-right">${formatCurrency(
       item.price
     )}</td>
-    <td style="font-size: 6px; padding: 1px;" class="text-right">${formatCurrency(
+    <td style="font-size: 10px; padding: 1px;" class="text-right">${formatCurrency(
       item.quantity * item.price
     )}</td>
   </tr>
